@@ -1,0 +1,7 @@
+﻿{
+  "SystemName": "CustomTheme",
+  "FriendlyName": "Custom Theme",
+  "SupportRTL": true,
+  "PreviewImageUrl": "~/Themes/CustomTheme/preview.jpg",
+  "PreviewText": "This is my custom theme based on DefaultClean"
+}
