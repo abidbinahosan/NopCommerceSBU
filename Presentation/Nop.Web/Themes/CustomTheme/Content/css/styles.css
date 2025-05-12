@@ -122,6 +122,7 @@ select {
   min-width: 50px;
   height: 32px; /*safari padding fix*/
   padding: 6px;
+  border-radius: 4px;
 }
 
   input[type="text"]:focus,
@@ -1073,6 +1074,7 @@ label, label + * {
   text-align: center;
   color: #fff;
   text-transform: uppercase;
+  border-radius: 0 4px 4px 0;
 }
 
   .search-box .search-box-button:hover,
@@ -2160,7 +2162,7 @@ label, label + * {
   font-size: 15px;
   color: #fff;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 4px 4px 0 0;
 }
 
   .item-box .product-box-add-to-cart-button:hover,
@@ -2172,10 +2174,11 @@ label, label + * {
 .item-box .add-to-wishlist-button {
   width: 50%;
   border-left: 1px solid #fff !important;
-  background-color: #eaeaea;
+  background-color: #f5f5f5;
   background-position: center;
   background-repeat: no-repeat;
   font-size: 0;
+  border-radius: 0 0 0 4px;
 }
 
 .item-box .add-to-compare-list-button {
@@ -2184,6 +2187,7 @@ label, label + * {
 
 .item-box .add-to-wishlist-button {
   background-image: url('../images/wishlist-button.png');
+  border-radius: 0 0 4px 0;
 }
 
   .item-box .add-to-compare-list-button:hover,
@@ -7138,7 +7142,7 @@ label, label + * {
         min-height: 55px;
         padding: 18px;
         font-size: 15px;
-        color: #c28df7;
+        color: black;
       }
 
         .top-menu > li > a:focus {
@@ -8412,11 +8416,14 @@ label, label + * {
     justify-content: flex-end;
   }
 
-  .search-box input.search-box-text,
+  .search-box input.search-box-text {
+    height: 32px;
+    border-radius: 4px 0 0 4px;
+  }
   .search-box .search-box-button,
   .search-box .search-box-category {
     height: 32px;
-    border-radius: 4px;
+    border-radius: 0 4px 4px 0;
   }
 
 
