@@ -61,12 +61,18 @@
 			const button = document.getElementById("toggleManufacturerNav");
 			const wrapper = document.getElementById("manufacturerNavWrapper");
 
+			// Restore previous state from localStorage
 			if (window.innerWidth > 1000 && button && wrapper) {
-				wrapper.style.display = "none";
+				const isOpen = localStorage.getItem("manufacturerMenuOpen") === "true";
+				wrapper.style.display = isOpen ? "block" : "none";
+
 				button.addEventListener("click", function () {
-					wrapper.style.display = (wrapper.style.display === "none") ? "block" : "none";
+					const isVisible = wrapper.style.display === "block";
+					wrapper.style.display = isVisible ? "none" : "block";
+					localStorage.setItem("manufacturerMenuOpen", !isVisible);
 				});
 			}
 		});
 	</script>
+
 }

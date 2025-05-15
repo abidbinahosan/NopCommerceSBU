@@ -70,11 +70,17 @@
 			const wrapper = document.getElementById("popular-tags-wrapper");
 
 			if (window.innerWidth > 1000 && button && wrapper) {
-				wrapper.style.display = "none";
+				// Restore toggle state from localStorage
+				const isOpen = localStorage.getItem("popularTagsMenuOpen") === "true";
+				wrapper.style.display = isOpen ? "block" : "none";
+
 				button.addEventListener("click", function () {
-					wrapper.style.display = (wrapper.style.display === "none") ? "block" : "none";
+					const isVisible = wrapper.style.display === "block";
+					wrapper.style.display = isVisible ? "none" : "block";
+					localStorage.setItem("popularTagsMenuOpen", !isVisible);
 				});
 			}
 		});
 	</script>
+
 }
