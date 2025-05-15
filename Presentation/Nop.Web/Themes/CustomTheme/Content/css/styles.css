@@ -2392,8 +2392,11 @@ label, label + * {
     border-radius: 10px;
     padding: 15px 20px;
     width: 240px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
     position: relative;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 
   .block .list li {
@@ -2595,19 +2598,211 @@ label, label + * {
       display: inline-block;
       margin: 10px;
     }
+/********** CATEGORY PAGE (Side Column) **********/
+/*** Categories Navigation ***/
+.category-toggle-button {
+  background-color: #8A2BE2;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+  .category-toggle-button:hover {
+    background-color: #4B0082;
+  }
+
+@media (max-width: 1000px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+/*** Manufaturers Navigation ***/
+.manufacturer-toggle-button {
+  background-color: #8A2BE2 !important;
+  color: #fff !important;
+  padding: 8px 16px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+  .manufacturer-toggle-button:hover {
+    background-color: #4B0082;
+  }
 
 
-  /********** CATEGORY PAGE **********/
+/*** RecentlyViewdProduct Navigation ***/
+.nav-toggle-button {
+  background-color: #8A2BE2;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center !important;
+  margin-bottom: 10px;
+}
 
+  .nav-toggle-button:hover {
+    background-color: #4B0082;
+  }
 
+		.nav-wrapper {
+			border: 1px solid #ccc;
+			padding: 10px;
+		}
 
-  .breadcrumb {
-    margin: 0 0 50px;
-    background-color: darkgrey;
-    color: white;
-    padding: 5px 10px;
+		.block-recently-viewed-products ul.list {
+			list-style: none;
+			padding-left: 0;
+			margin: 0;
+		}
+
+		.block-recently-viewed-products .product-picture {
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+		.block-recently-viewed-products .product-name {
+			display: inline-block;
+			vertical-align: top;
+			margin-top: 5px;
+		}
+/* Hide custom toggle on mobile */
+@media screen and (max-width: 1000px) {
+  .desktop-toggle-wrapper {
+    display: none !important;
+  }
+}
+
+/* Hide default mobile behavior on large screens */
+@media screen and (min-width: 1001px) {
+  .mobile-default-wrapper {
+    display: none !important;
+  }
+}
+/*** PopularProductTags Navigation ***/
+.nav-toggle-button {
+  background-color: #8A2BE2;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+  .nav-toggle-button:hover {
+    background-color: #4B0082;
+  }
+
+.nav-wrapper {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+/*** Sublist Hover Effect ***/
+/* General list reset */
+.block-category-navigation {
+  border: 1px solid lightgrey
+}
+.block-category-navigation .list
+.block-category-navigation .sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make parent li full width and hoverable */
+.block-category-navigation .list > li {
+  position: relative;
+  padding: 10px 15px;
+  cursor: pointer;
+ 
+}
+
+  .block-category-navigation .list > li > a {
+    display: block;
+    width: 100%;
+    color: #333;
+    text-decoration: none;
+  }
+
+  /* Sublist hidden by default */
+  .block-category-navigation .list > li .sublist {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    z-index: 1000;
+    min-width: 150px;
+    margin: 0 0 0 -55px; /* Bring the sublist closer to the top level */
     border-radius: 4px;
   }
+
+  /* Show sublist when hovering the entire li */
+  .block-category-navigation .list > li:hover > .sublist {
+    display: block;
+  }
+
+/* Style sublist items */
+.block-category-navigation .sublist > li {
+  padding: 8px 12px;
+}
+
+  .block-category-navigation .sublist > li > a {
+    display: block;
+    text-decoration: none;
+    color: #555;
+  }
+
+    .block-category-navigation .sublist > li > a:hover {
+      background-color: #f2f2f2;
+    }
+
+
+
+
+.block-popular-tags .tags ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.block-popular-tags .tags li {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.block-popular-tags .view-all {
+  margin-top: 10px;
+}
+
+/********** CATEGORY PAGE **********/
+.breadcrumb {
+  margin: 0 0 50px;
+  background-color: darkgrey;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
 
     .breadcrumb ul {
       font-size: 0;
@@ -2632,36 +2827,7 @@ label, label + * {
     .breadcrumb a:focus {
       color: red;
     }
-/* Button styling */
-.recently-viewed-toggle-button {
-  display: none;
-  padding: 8px 12px;
-  font-weight: bold;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
 
-/* Show full list by default */
-.recently-viewed-wrapper {
-  display: block;
-}
-
-/* On small screens, hide list by default and show toggle button */
-@media screen and (max-width: 1000px) {
-  .recently-viewed-toggle-button {
-    display: inline-block;
-  }
-
-  .recently-viewed-wrapper {
-    display: none;
-  }
-
-    .recently-viewed-wrapper.active {
-      display: block;
-    }
-}
   .category-description,
   .manufacturer-description,
   .vendor-description {

@@ -1,28 +1,72 @@
 ﻿@model ManufacturerNavigationModel
-
 @using Nop.Core.Domain.Catalog
 
 @if (Model.Manufacturers.Count > 0)
 {
-    <div class="block block-manufacturer-navigation">
-        <div class="title">
-            <strong>@T("Manufacturers")</strong>
-        </div>
-        <div class="listbox">
-            <ul class="list">
-                @foreach (var manufacturer in Model.Manufacturers)
-                {
-                    <li class="@(manufacturer.IsActive ? "active" : "inactive")">
-                        <a href="@(Url.RouteUrl<Manufacturer>(new { SeName = manufacturer.SeName }))">@manufacturer.Name</a>
-                    </li>
-                }
-            </ul>
-            @if (Model.TotalManufacturers > Model.Manufacturers.Count)
-            {
-                <div class="view-all">
-                    <a href="@Url.RouteUrl("ManufacturerList")">@T("Manufacturers.ViewAll")</a>
-                </div>
-            }
-        </div>
-    </div>
+	<!-- Custom Toggle for Desktop -->
+	<div class="desktop-toggle-wrapper">
+		<button id="toggleManufacturerNav" class="nav-toggle-button">
+			@T("Manufacturers")
+		</button>
+
+		<div class="block block-manufacturer-navigation nav-wrapper" id="manufacturerNavWrapper" style="display: none;">
+			<div class="listbox">
+				<ul class="list">
+					@foreach (var manufacturer in Model.Manufacturers)
+					{
+						<li class="@(manufacturer.IsActive ? "active" : "inactive")">
+							<a href="@(Url.RouteUrl<Manufacturer>(new { SeName = manufacturer.SeName }))">@manufacturer.Name</a>
+						</li>
+					}
+				</ul>
+
+				@if (Model.TotalManufacturers > Model.Manufacturers.Count)
+				{
+					<div class="view-all">
+						<a href="@Url.RouteUrl("ManufacturerList")">@T("Manufacturers.ViewAll")</a>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+
+	<!-- Default Mobile Layout (toggle-panel for <=1000px) -->
+	<div class="mobile-default-wrapper">
+		<div class="block block-manufacturer-navigation toggle-panel">
+			<div class="title">
+				@T("Manufacturers")
+			</div>
+			<div class="listbox">
+				<ul class="list">
+					@foreach (var manufacturer in Model.Manufacturers)
+					{
+						<li class="@(manufacturer.IsActive ? "active" : "inactive")">
+							<a href="@(Url.RouteUrl<Manufacturer>(new { SeName = manufacturer.SeName }))">@manufacturer.Name</a>
+						</li>
+					}
+				</ul>
+
+				@if (Model.TotalManufacturers > Model.Manufacturers.Count)
+				{
+					<div class="view-all">
+						<a href="@Url.RouteUrl("ManufacturerList")">@T("Manufacturers.ViewAll")</a>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const button = document.getElementById("toggleManufacturerNav");
+			const wrapper = document.getElementById("manufacturerNavWrapper");
+
+			if (window.innerWidth > 1000 && button && wrapper) {
+				wrapper.style.display = "none";
+				button.addEventListener("click", function () {
+					wrapper.style.display = (wrapper.style.display === "none") ? "block" : "none";
+				});
+			}
+		});
+	</script>
 }

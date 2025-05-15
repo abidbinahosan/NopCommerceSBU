@@ -1,0 +1,80 @@
+﻿@model PopularProductTagsModel
+@using Nop.Core.Domain.Catalog
+
+@if (Model.Tags.Count > 0)
+{
+	<!-- Desktop version: custom toggle -->
+	<div class="desktop-toggle-wrapper">
+		<button id="toggle-popular-tags" class="nav-toggle-button">
+			@T("Products.Tags.Popular")
+		</button>
+
+		<div class="block block-popular-tags nav-wrapper" id="popular-tags-wrapper" style="display: none;">
+			<div class="listbox">
+				<div class="tags">
+					<ul>
+						@foreach (var item in Model.Tags)
+						{
+							<li>
+								<a href="@(Url.RouteUrl<ProductTag>(new { SeName = item.SeName }))"
+								   style="font-size:@(Model.GetFontSize(item))%;">
+									@item.Name
+								</a>
+							</li>
+						}
+					</ul>
+				</div>
+				@if (Model.TotalTags > Model.Tags.Count)
+				{
+					<div class="view-all">
+						<a href="@Url.RouteUrl("ProductTagsAll")">@T("Products.Tags.Popular.ViewAll")</a>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+
+	<!-- Mobile version: default toggle-panel UI -->
+	<div class="mobile-default-wrapper">
+		<div class="block block-popular-tags toggle-panel">
+			<div class="title">
+				@T("Products.Tags.Popular")
+			</div>
+			<div class="listbox">
+				<div class="tags">
+					<ul>
+						@foreach (var item in Model.Tags)
+						{
+							<li>
+								<a href="@(Url.RouteUrl<ProductTag>(new { SeName = item.SeName }))"
+								   style="font-size:@(Model.GetFontSize(item))%;">
+									@item.Name
+								</a>
+							</li>
+						}
+					</ul>
+				</div>
+				@if (Model.TotalTags > Model.Tags.Count)
+				{
+					<div class="view-all">
+						<a href="@Url.RouteUrl("ProductTagsAll")">@T("Products.Tags.Popular.ViewAll")</a>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const button = document.getElementById("toggle-popular-tags");
+			const wrapper = document.getElementById("popular-tags-wrapper");
+
+			if (window.innerWidth > 1000 && button && wrapper) {
+				wrapper.style.display = "none";
+				button.addEventListener("click", function () {
+					wrapper.style.display = (wrapper.style.display === "none") ? "block" : "none";
+				});
+			}
+		});
+	</script>
+}
