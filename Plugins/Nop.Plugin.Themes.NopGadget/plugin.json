@@ -1,0 +1,10 @@
+{
+  "Group": "Theme",
+  "FriendlyName": "Nop Gadget Theme",
+  "SystemName": "Theme.NopGadget",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.80" ],
+  "Author": "Your Company",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Themes.NopGadget.dll"
+}

@@ -1,0 +1,8 @@
+Group: Themes
+FriendlyName: nopGadget Theme
+SystemName: NopGadgetTheme
+Version: 1.0
+SupportedVersions: 4.80
+Author: Your Name
+DisplayOrder: 1
+LimitedToStores:

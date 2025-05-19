@@ -1,4 +1,6 @@
-﻿namespace Nop.Web.Framework.Menu;
+﻿using Microsoft.AspNetCore.Routing;
+
+namespace Nop.Web.Framework.Menu;
 
 /// <summary>
 /// Admin menu item
@@ -9,6 +11,7 @@ public partial class AdminMenuItem
 
     protected IList<string> _permissionNames;
     protected string _url;
+    public RouteValueDictionary RouteValues;
 
     #endregion
 
@@ -196,6 +199,7 @@ public partial class AdminMenuItem
     /// Gets the action name from URL
     /// </summary>
     public string ActionName { get; protected set; }
+    public object ChildItems { get; set; }
 
     #endregion
 }

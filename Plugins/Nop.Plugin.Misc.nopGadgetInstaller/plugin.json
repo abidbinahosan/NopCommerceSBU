@@ -1,0 +1,10 @@
+{
+  "Group": "Misc",
+  "FriendlyName": "nopGadget Theme Installer",
+  "SystemName": "Nop.Plugin.Misc.nopGadgetInstaller",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.80" ],
+  "Author": "Nop Station",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Misc.nopGadgetInstaller.dll"
+}

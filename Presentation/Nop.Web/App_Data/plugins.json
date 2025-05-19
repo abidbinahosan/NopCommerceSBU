@@ -98,6 +98,10 @@
     {
       "SystemName": "ExternalAuth.Facebook",
       "Version": "4.80.5"
+    },
+    {
+      "SystemName": "Theme.NopGadget",
+      "Version": "1.00"
     }
   ],
   "PluginNamesToUninstall": [],
